@@ -1,9 +1,6 @@
 package neoflex.bank.account.ws;
 
-import neoflex.bank.account.daoAccount.Account;
-import neoflex.bank.account.daoAccount.AccountCreate;
-import neoflex.bank.account.daoAccount.AccountDelete;
-import neoflex.bank.account.daoAccount.AccountRead;
+import neoflex.bank.account.daoAccount.*;
 
 import javax.jws.WebService;
 
@@ -12,6 +9,7 @@ public class TestWebServiceAccountImpl implements TestWebServiceAccount {
     AccountCreate accountCreate = new AccountCreate();
     AccountRead accountRead = new AccountRead();
     AccountDelete accountDelete = new AccountDelete();
+    AccountUpdate accountUpdate = new AccountUpdate();
     Account account = new Account();
 
 
@@ -29,8 +27,9 @@ public class TestWebServiceAccountImpl implements TestWebServiceAccount {
     }
 
     @Override
-    public void update(int id, int userid, int balance) {
-
+    public String update(int id, int userid, int balance) {
+        accountUpdate.update(id, userid, balance);
+        return "user update";
     }
 
     @Override

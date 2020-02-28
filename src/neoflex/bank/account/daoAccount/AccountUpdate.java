@@ -16,8 +16,8 @@ public class AccountUpdate {
                 "root",
                 "mysql")) {
             Statement statement = conn.createStatement();
-            statement.executeUpdate("update mydbtest.account set id=id, set userid=userid, set balance=balance, WHERE ID=id;");
-
+            //statement.executeUpdate("UPDATE mydbtest.users SET name='" + name + "',age='" + age + "',email='" + email + "'  WHERE id=" + id);
+            statement.executeUpdate("UPDATE mydbtest.account SET userid='" + userid + "',balance='" + balance + "' WHERE id=" + id);
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
         }

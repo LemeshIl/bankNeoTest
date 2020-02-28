@@ -18,7 +18,7 @@ public interface TestWebServiceAccount {
 
     public Account findById(int id);
 
-    public void update(int id,int userid, int balance);
+    public String update(int id,int userid, int balance);
 
     public void delete(int id);
 

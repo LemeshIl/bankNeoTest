@@ -1,9 +1,6 @@
 package neoflex.bank.user.ws;
 
-import neoflex.bank.user.daoUser.User;
-import neoflex.bank.user.daoUser.UserCreate;
-import neoflex.bank.user.daoUser.UserDelete;
-import neoflex.bank.user.daoUser.UserRead;
+import neoflex.bank.user.daoUser.*;
 import neoflex.bank.user.ws.TestWebService;
 
 import javax.jws.WebService;
@@ -13,6 +10,7 @@ public class TestWebServiceImpl implements TestWebService {
     UserCreate userCreate = new UserCreate();
     UserRead userRead = new UserRead();
     UserDelete userDelete=new UserDelete();
+    UserUpdate userUpdate=new UserUpdate();
     User user=new User();
 
     public String create( String name, int age, String email) {
@@ -29,8 +27,9 @@ public class TestWebServiceImpl implements TestWebService {
     }
 
     @Override
-    public void update(int id,String name, int age, String email){
-
+    public String update(int id,String name, int age, String email){
+        userUpdate.update(id, name, age, email);
+        return "User update ";
     }
 
     @Override

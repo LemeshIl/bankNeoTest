@@ -17,8 +17,7 @@ public class AccountDelete {
                 "mysql")
         ) {
             Statement statement = conn.createStatement();
-            statement.executeUpdate("Delete account FROM mydbtest.account WHERE id=;"+id);
-
+            statement.executeUpdate("DELETE FROM mydbtest.account WHERE id="+id);
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
         }

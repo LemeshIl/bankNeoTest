@@ -17,7 +17,7 @@ public interface TestWebService {
 
     public User findById (int id);//на звать find by id   - return user
 
-    public void update(int id,String name, int age, String email);
+    public String update(int id,String name, int age, String email);
 
     public void delete (int id);
 

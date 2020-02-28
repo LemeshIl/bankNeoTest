@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class UserDelete {
 
-    public  void delete(int id) {
+    public void delete(int id) {
         try (Connection conn = DriverManager.getConnection(
                 "jdbc:mysql://localhost/mydbtest?useUnicode=" +
                         "true&useJDBCCompliantTimezoneShift=" +
@@ -17,8 +17,7 @@ public class UserDelete {
                 "mysql")
         ) {
             Statement statement = conn.createStatement();
-            statement.executeUpdate("Delete users FROM mydbtest.users WHERE id=;"+id);
-
+            statement.executeUpdate("DELETE FROM mydbtest.users WHERE id=" + id);
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
         }

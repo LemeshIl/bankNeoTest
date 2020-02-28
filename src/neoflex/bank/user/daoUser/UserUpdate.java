@@ -5,7 +5,7 @@ import java.sql.*;
 
 public class UserUpdate {
 
-    public  void update(int id, String name, int age, String email) {
+    public void update(int id, String name, int age, String email) {
         try (Connection conn = DriverManager.getConnection(
                 "jdbc:mysql://localhost/mydbtest?useUnicode=" +
                         "true&useJDBCCompliantTimezoneShift=" +
@@ -13,8 +13,8 @@ public class UserUpdate {
                 "root",
                 "mysql")) {
             Statement statement = conn.createStatement();
-            statement.executeUpdate("update mydbtest.users set name=\"Vasily\"  set;");
 
+            statement.executeUpdate("UPDATE mydbtest.users SET name='" + name + "',age='" + age + "',email='" + email + "'  WHERE id=" + id);
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
         }
