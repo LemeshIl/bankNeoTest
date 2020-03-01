@@ -1,12 +1,14 @@
-package neoflex.bank.account.daoAccount;
+package neoflex.bank.client.dao;
 
+
+import neoflex.bank.client.model.Client;
 
 import java.sql.*;
 
-public class AccountRead {
+public class ClientRead {
 
-    public void read (int id) {
-        String query = "SELECT* FROM account WHERE id= "+id;
+    public void read(int id) {
+        String query = "SELECT* FROM client WHERE id= " + id;
 
         try (Connection conn = DriverManager.getConnection(
                 "jdbc:mysql://localhost/mydbtest?useUnicode=" +
@@ -18,12 +20,14 @@ public class AccountRead {
 
                 ResultSet resultSet = statement.executeQuery(query);
                 while (resultSet.next()) {
-                    Account account = new Account();
-                    account.setId(resultSet.getInt(1));
-                    account.setUserid(resultSet.getInt(2));
-                    account.setBalance(resultSet.getInt(3));
-
-                    System.out.println(account);
+                    Client client = new Client();
+                    client.setId(resultSet.getInt(1));
+                    client.setUsername(resultSet.getString(2));
+                    client.setPassword(resultSet.getInt(3));
+                    client.setBirth_date(resultSet.getString(4));
+                    client.setName(resultSet.getString(5));
+                    client.setSurname(resultSet.getString(6));
+                    System.out.println(client);
                 }
             }
 

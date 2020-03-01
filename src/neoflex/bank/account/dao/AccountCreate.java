@@ -1,4 +1,4 @@
-package neoflex.bank.account.daoAccount;
+package neoflex.bank.account.dao;
 
 
 import java.sql.Connection;
@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class AccountCreate {
 
-    public void create(int userid, int balance) {
+    public void create(int client_id, int balance, String open_date, String close_date, String status) {
 
         try (Connection conn = DriverManager.getConnection(
                 "jdbc:mysql://localhost/mydbtest?useUnicode=" +
@@ -18,7 +18,8 @@ public class AccountCreate {
                 "mysql")) {
             Statement statement = conn.createStatement();
 
-            statement.executeUpdate("insert into account (userid, balance) values ('" + userid + "','" + balance + "');");
+            statement.executeUpdate("insert into account (client_id, balance, open_date, close_date,status) " +
+                    "values ('" + client_id + "','" + balance + "','" + open_date + "','" + close_date + "','" + status + "' );");
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
         }

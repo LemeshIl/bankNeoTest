@@ -1,23 +1,21 @@
-package neoflex.bank.user.daoUser;
+package neoflex.bank.client.dao;
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
-public class UserDelete {
+public class ClientUpdate {
 
-    public void delete(int id) {
+    public void update(int id, String username, int password, String birth_date, String name, String surname) {
         try (Connection conn = DriverManager.getConnection(
                 "jdbc:mysql://localhost/mydbtest?useUnicode=" +
                         "true&useJDBCCompliantTimezoneShift=" +
                         "true&useLegacyDatetimeCode=false&serverTimezone=UTC",
                 "root",
-                "mysql")
-        ) {
+                "mysql")) {
             Statement statement = conn.createStatement();
-            statement.executeUpdate("DELETE FROM mydbtest.users WHERE id=" + id);
+
+            statement.executeUpdate("UPDATE client SET username='" + username + "',password='" + password + "'," +
+                    "birth_date='" + birth_date + "',name ='" + name + "', surname='" + surname + "' WHERE id=" + id);
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
         }
