@@ -1,4 +1,4 @@
-package neoflex.bank.client.dao;
+package neoflex.bank.account.dao;
 
 
 import java.sql.Connection;
@@ -6,9 +6,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class ClientCreate {
+public class AccountUpdate {
 
-    public void create(String username, int password, String birth_date, String name, String surname) {
+    public void update(int id, int client_id, int balance, String open_date, String close_date, String status) {
+        String query = "UPDATE account  SET  client_id='" + client_id + "', balance='" + balance + "', open_date ='"
+                + open_date + "', close_date ='" + close_date + "', status ='" + status + "' WHERE id=" + id;
 
         try (Connection conn = DriverManager.getConnection(
                 "jdbc:mysql://localhost/mydbtest?useUnicode=" +
@@ -17,13 +19,10 @@ public class ClientCreate {
                 "root",
                 "mysql")) {
             Statement statement = conn.createStatement();
-
-            statement.executeUpdate("insert into client (username, password, birth_date,name, surname) " +
-                    "values ('" + username + "', " + password + ",'" + birth_date + "','" + name + "','" + surname + "');");
+            statement.executeUpdate(query);
 
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
         }
     }
 }
-

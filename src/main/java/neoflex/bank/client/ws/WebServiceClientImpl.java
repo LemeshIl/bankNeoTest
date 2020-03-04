@@ -3,9 +3,11 @@ package neoflex.bank.client.ws;
 import neoflex.bank.client.dao.*;
 import neoflex.bank.client.model.Client;
 
+import javax.ejb.Stateless;
 import javax.jws.WebService;
 
-@WebService(endpointInterface = "neoflex.bank.client.ws.WebServiceClient")
+@Stateless
+@WebService( )
 public class WebServiceClientImpl implements WebServiceClient {
     ClientCreate clientCreate = new ClientCreate();
     ClientRead clientRead = new ClientRead();

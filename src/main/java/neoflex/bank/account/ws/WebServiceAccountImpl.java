@@ -3,9 +3,15 @@ package neoflex.bank.account.ws;
 import neoflex.bank.account.dao.*;
 import neoflex.bank.account.model.Account;
 
+import javax.ejb.Stateless;
 import javax.jws.WebService;
 
-@WebService(endpointInterface = "neoflex.bank.account.ws.WebServiceAccount")
+@Stateless
+@WebService( )
+
+
+
+
 public class WebServiceAccountImpl implements WebServiceAccount {
     AccountCreate accountCreate = new AccountCreate();
     AccountRead accountRead = new AccountRead();
