@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="testNeoProject:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>testNeoProject</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="neo-jm1.war">
+      <element id="artifact" artifact-name="testNeoProject:war exploded" />
+    </root>
+  </artifact>
+</component>
